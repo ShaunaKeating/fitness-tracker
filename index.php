@@ -1,5 +1,8 @@
-<div id="home-pg-container">
+<?php include 'header.php';?>
     
+
+<div id="home-pg-container">
+    <h1>Track Your Fitness</h1>
     
     
 
