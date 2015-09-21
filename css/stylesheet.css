@@ -114,3 +114,39 @@ body {
 	background-color: #1CA347;
 	border-color: #1CA347;
 }
+
+.no-phone {
+	display: block;
+	border-right: 1px solid #eee;
+}
+		
+@media (max-width: 500px) {
+        
+    .no-phone {
+          display: none;
+    }
+		}
+		
+.opt-panel{
+	margin-top: 10px;
+}
+
+.custom-icon, .custom-icon-text{
+	color: #252527;
+}
+
+.custom-icon{
+	font-size: 30px;
+}
+
+.custom-icon-text:hover {
+	color: #33A5D5;
+}
+		
+.custom-icon:hover{
+	color: #33A5D5;
+	}
+		
+.custom-icon-link{
+	text-decoration: none;
+}

@@ -21,6 +21,196 @@
     <![endif]-->
   </head>
   <body>
+    
+    	<body>
+		<div class="container">
+			<!-- Start: TopBar -->
+			<nav class="navbar navbar-default">
+			  <div class="container-fluid">
+				<div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				  <a class="navbar-brand" href="#">Track Your Fitness</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				  <ul class="nav navbar-nav">
+					<li><a href="#">User Settings</a></li>
+					<li><a href="#">Log out</a></li>
+					<li><a href="#">Goals</a></li>
+				  </ul>
+				  <ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Name<span class="caret"></span></a>
+					  <ul class="dropdown-menu">
+						<li><a href="#">Profile</a></li>
+						<li><a href="#">Tasks</a></li>
+						<li role="separator" class="divider"></li>
+						<li><a href="#">Session Close</a></li>
+					  </ul>
+					</li>
+				  </ul>
+				</div>
+			  </div>
+			</nav>
+			<!-- End: TopBar -->
+			<div class="row">	
+				<!-- Start: Left Only Desktop Panel -->			
+				<div class="col-md-4 col-lg-4 no-phone text-center" style="">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<h3>Percentage Daily Values</h3>
+					</div>
+					<!-- Start: Progress Bar -->
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="row">
+							<div class="col-xs-1 col-sm-1 col-md-6 col-lg-6 text-left">Calories</div>
+							<div class="col-xs-1 col-sm-1 col-md-6 col-lg-6 text-right">588/2000</div>
+						</div>
+						<div class="progress">
+						  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
+						</div>
+					</div>
+					<!-- End: Progress Bar -->
+					<!-- Start: Progress Bar -->
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="row">
+							<div class="col-xs-1 col-sm-1 col-md-6 col-lg-6 text-left">Minutes Exercised Today</div>
+							<div class="col-xs-1 col-sm-1 col-md-6 col-lg-6 text-right">5/30</div>
+						</div>
+						<div class="progress">
+						  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"></div>
+						</div>
+					</div>
+					<!-- End: Progress Bar -->
+				</div>
+				<!-- End: Left Only Desktop Panel -->	
+				<!-- Start: Right Panels -->
+				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+					<!-- Start: Panel Filter -->
+					<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+						<div class="input-group">
+							<input type="text" class="form-control input" placeholder="search your entries" id="panel-search-text">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button" id="panel-seach-btn">Search!</button>
+							</span>
+						</div>
+								
+					</div>
+					<!-- End: Panel Filter -->
+					<!-- Start:Panel-->
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="panel panel-default opt-panel">
+						  <div class="panel-heading">
+							<h3 class="panel-title">Exercise Entries</h3>
+						  </div>
+						  <div class="panel-body text-center">
+							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+								<a href="#" class="custom-icon-link">
+									<div class="row custom-icon">
+										<i class="glyphicon glyphicon-plus" title="new"></i>
+									</div> 
+									<div class="row custom-icon-text">
+										New
+									</div>
+								</a>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+								<a href="#">
+									<div class="row custom-icon">
+										<i class="glyphicon glyphicon-edit" title="edit"></i>
+									</div> 
+									<div class="row custom-icon-text">
+										Edit
+									</div>
+								</a>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+								<a href="#">
+									<div class="row custom-icon">
+										<i class="glyphicon glyphicon-list" title="view all"></i>
+									</div> 
+									<div class="row custom-icon-text">
+										All
+									</div>
+								</a>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+								<a href="#">
+									<div class="row custom-icon">
+										<i class="glyphicon glyphicon-search" title="search"></i>
+									</div> 
+									<div class="row custom-icon-text">
+										Search
+									</div>
+								</a>
+							</div>
+						  </div>
+						</div>
+					</div>
+					<!--End:Panel-->
+					<!-- Start:Panel-->
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="panel panel-default opt-panel">
+						  <div class="panel-heading">
+							<h3 class="panel-title">Diet Entries</h3>
+						  </div>
+						  <div class="panel-body text-center">
+							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+								<a href="#">
+									<div class="row custom-icon">
+										<i class="glyphicon glyphicon-plus" title="new"></i>
+									</div> 
+									<div class="row custom-icon-text">
+										New
+									</div>
+								</a>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+								<a href="#">
+									<div class="row custom-icon">
+										<i class="glyphicon glyphicon-edit" title="edit"></i>
+									</div> 
+									<div class="row custom-icon-text">
+										Edit
+									</div>
+								</a>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+								<a href="#">
+									<div class="row custom-icon">
+										<i class="glyphicon glyphicon-list" title="view all"></i>
+									</div> 
+									<div class="row custom-icon-text">
+										All
+									</div>
+								</a>
+							</div>
+							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+								<a href="#">
+									<div class="row custom-icon">
+										<i class="glyphicon glyphicon-search" title="search"></i>
+									</div> 
+									<div class="row custom-icon-text">
+										Search
+									</div>
+								</a>
+							</div>
+						  </div>
+						</div>
+					</div>
+					<!--End:Panel-->
+				</div>
+				<!--End: Right Panels -->					
+			</div>		
+			
+		</div>
+    
+    
+    
+    
     <!-- Bootstrap core JavaScript-->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
@@ -29,24 +219,7 @@
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
     
     <script>
-            $(document).ready(function() {
-
-    $('#login-form-link').click(function(e) {
-		$("#login-form").delay(100).fadeIn(100);
- 		$("#register-form").fadeOut(100);
-		$('#register-form-link').removeClass('active');
-		$(this).addClass('active');
-		e.preventDefault();
-	});
-	$('#register-form-link').click(function(e) {
-		$("#register-form").delay(100).fadeIn(100);
- 		$("#login-form").fadeOut(100);
-		$('#login-form-link').removeClass('active');
-		$(this).addClass('active');
-		e.preventDefault();
-	});
-
-});
+           // jQuery goes here
     </script>
   </body>
 </html>
