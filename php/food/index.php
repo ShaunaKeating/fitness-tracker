@@ -1,3 +1,21 @@
+<?php 
+	$name = 'Shauna Keating';
+	$person = array('Name' => $name, 'Age' => 21, 'Calorie Goal' => 2000);
+
+	$food = array(
+		array('Name' => 'Breakfast', 'Time' => strtotime("one hour ago"), 'Calories' => 400),
+		array('Name' => 'Lunch', 'Time' => strtotime("now"), 'Calories' => 800),
+		array('Name' => 'Snack', 'Time' => strtotime("now + 1 hour"), 'Calories' => 400),		
+		array('Name' => 'Dinner', 'Time' => strtotime('6pm'), 'Calories' => 400),			
+		);
+		
+	$total = 0;
+	foreach ($food as $meal) {
+		$total += $meal['Calories'];
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +29,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="../../css/stylesheet.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,9 +38,9 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-    
-    	<body>
-		<div class="container">
+  <body>
+      
+
 			<!-- Start: TopBar -->
 			<nav class="navbar navbar-default">
 			  <div class="container-fluid">
@@ -33,8 +51,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				  </button>
-				  <a class="navbar-brand" href="#">
-				  	<object type="image/svg+xml" data="logo.svg" class="svg-logo"><img src="images/logo-01.png"><img alt="FitLog Logo" src="images/logo.png"></object></a>
+				  <a class="navbar-brand" href="#">Track Your Fitness</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				  <ul class="nav navbar-nav">
@@ -44,7 +61,7 @@
 				  </ul>
 				  <ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
-					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Name<span class="caret"></span></a>
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $name ?><span class="caret"></span></a>
 					  <ul class="dropdown-menu">
 						<li><a href="#">Profile</a></li>
 						<li><a href="#">Tasks</a></li>
@@ -57,6 +74,7 @@
 			  </div>
 			</nav>
 			<!-- End: TopBar -->
+		<div class="container">
 			<div class="row">	
 				<!-- Start: Left Only Desktop Panel -->			
 				<div class="col-md-4 col-lg-4 no-phone text-center" style="">
@@ -214,18 +232,21 @@
 			
 		</div>
     
-    
-    
-    
-    <!-- Bootstrap core JavaScript-->
+      
+      
+      
+  
+  
+  
+  <!-- Bootstrap core JavaScript-->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
     
     <script>
-           // jQuery goes here
+            //jquery + javascript go here
     </script>
   </body>
 </html>

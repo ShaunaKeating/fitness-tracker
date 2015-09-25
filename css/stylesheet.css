@@ -1,4 +1,4 @@
-body {
+.login-signup-pg {
     background-image: url('../images/im1.jpg'); 
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -12,6 +12,12 @@ body {
     color: #3E0E00;
     padding-bottom: 30px;
     text-align: center;
+}
+
+.svg-logo {
+    width: 127px;
+    height: 56px;
+    margin-top: -22px;
 }
 
 .panel {
