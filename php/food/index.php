@@ -1,19 +1,36 @@
 <?php 
+
+session_start();
 	$name = 'Shauna Keating';
+		    $message = "Welcome $name";
 	$person = array('Name' => $name, 'Age' => 21, 'Calorie Goal' => 2000);
-
-	$food = array(
-		array('Name' => 'Breakfast', 'Time' => strtotime("one hour ago"), 'Calories' => 400),
-		array('Name' => 'Lunch', 'Time' => strtotime("now"), 'Calories' => 800),
-		array('Name' => 'Snack', 'Time' => strtotime("now + 1 hour"), 'Calories' => 400),		
-		array('Name' => 'Dinner', 'Time' => strtotime('6pm'), 'Calories' => 400),			
-		);
+	
+	$food = $SESSION['food'];
+		if(!$food) {
+			$_SESSION['food'] = $food = array(
+        array( 'Name' => 'Breakfast', 'Time' => strtotime("-1 hour"), Calories => 400 ),
+        array( 'Name' => 'Lunch', 'Time' => strtotime("now"), Calories => 800 ),
+        array( 'Name' => 'Snack', 'Time' => strtotime("now + 1 hour"), Calories => 400 ),
+        array( 'Name' => 'Dinner', 'Time' => strtotime("6pm"), Calories => 400 ),
+        );
+        
+		}
 		
-	$total = 0;
-	foreach ($food as $meal) {
-		$total += $meal['Calories'];
-	}
-
+		
+	    $food = $_SESSION['food'];
+    if ($_POST){
+        $food[] = $_POST;
+        $_SESSION['food'] = $food;
+        header('Location: ./');
+    }
+    	
+    
+    $total = 0;
+    foreach ($food as $meal) {
+        $total += $meal['Calories'];
+    }
+    
+    
 ?>
 
 <!DOCTYPE html>
@@ -221,6 +238,91 @@
 									</div>
 								</a>
 							</div>
+							
+							
+		 <form class="form-horizontal" action="./" method="post" >
+          <div class='alert' style="display: none" id="myAlert">
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h3></h3>
+          </div> 
+          <div class="form-group">
+            <label for="txtName" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="txtName" name="Name" placeholder="Meal's Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="txtCalories">Calories</label>
+            <div class="col-sm-10">
+                  <input type="number" class="form-control" id="txtCalories" name="Calories" placeholder="Calories in this meal">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="txtDate">When did you eat</label>
+            <div class="col-sm-10">
+                  <input type="date" class="form-control" id="txtDate" name="Time" placeholder="Date">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Remember me
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-success" id="submit">Record</button>
+            </div>
+          </div>
+        </form>
+							<a href="#" class="btn btn-success">
+               					 <i class="glyphicon glyphicon-plus"></i>
+               						 New Record
+           					</a>
+           					 <a href="#" class="btn btn-danger">
+                				<i class="glyphicon glyphicon-trash"></i>
+               						 Delete All
+            					<span class="badge"><?=count($food);?></span>
+            				</a>
+							
+							<table class="table table-condensed table-striped table-bordered table-hover">
+              					<thead>
+               					 <tr>
+                 					 <th>#</th>
+                 					 <th>Name</th>
+                 					 <th>Time</th>
+                 					 <th>Calories</th>
+               					 </tr>
+             					 </thead>
+             					 <tbody>
+      
+               						 <?php foreach($food as $i => $meal): ?>
+                						<tr>
+                 						 <th scope="row"><?=$i?>
+                 						 	<div class="btn-group" role="group" aria-label="...">
+                 						 		<a href="" title="view" class="btn btn-default" >
+                 						 			<i class="glyphicon glyphicon-eye-open"></i> 
+                 						 		</a>
+                 						 			<a href="" title="edit" class="btn btn-default" >
+                 						 			<i class="glyphicon glyphicon-edit"></i> 
+                 						 		</a>
+                 						 		<a href="" title="delete" class="btn btn-default" >
+                 						 			<i class="glyphicon glyphicon-remove"></i> 
+                 						 		</a>
+                 						 	</div>
+                 						 	</th>
+                 							 <td><?=$meal['Name']?></td>
+                 							 <td><?=date("M d Y  h:i:sa", $meal['Time'])?></td>
+                 							 <td><?=$meal['Calories']?></td>
+               								 </tr>
+                					<?php endforeach; ?>
+            					  </tbody>
+           						 </table>  
 						  </div>
 						</div>
 					</div>
@@ -246,7 +348,38 @@
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
     
     <script>
-            //jquery + javascript go here
+                      
+          $("#submit").on('click', function(e){
+            var self = this;
+            //$(self).css({display: "none"});
+            $(self).hide().after("Working...");
+            
+            var per = 0;
+            var interval = setInterval(function(){
+              per += 25;
+              $(".progress-bar").css("width", per + "%");
+              $(".progress-bar span").text(per);
+              if(per >= 100){
+                clearInterval(interval);
+                
+                if( !$("#txtDate").val() ){
+                  $("input").css({ backgroundColor: "#FFAAAA"});
+                  $(self).prop("disabled", false).html("Try Again");
+                  $("#myAlert").removeClass("alert-success").addClass("alert-danger").show()
+                    .find("h3").html("You must enter a date");
+                  toastr.error("You must enter a date");
+                  
+                }else{
+                  // Display success
+                  $("#myAlert").removeClass("alert-danger").addClass("alert-success").show()
+                    .find("h3").html("Yay! You did it.");
+                  toastr.success("Yay! You did it.")
+                  
+                }
+                
+                
+              }
+            }, 200);
     </script>
   </body>
 </html>

@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -101,6 +104,23 @@
 					</div>
 					<!-- End: Panel Filter -->
 					
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div class="panel panel-success">
+                <div class="panel-heading">Your Data</div>
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>Name</dt>
+                        <dd><?=$person['Name']?></dd>
+                        <dt>Age</dt>
+                        <dd><?=$person['Age']?></dd>
+                        <dt>Goal</dt>
+                        <dd><?=$person['CallorieGoal']?></dd>
+                        <dt>Today's Intake</dt>
+                        <dd><?=$total?></dd>
+                    </dl>
+                </div>
+            </div>
+            </div>
 					
 					
 					<!-- Start:Panel-->
@@ -112,7 +132,7 @@
 						  <div class="panel-body text-center">
 							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 								<a href="#" class="custom-icon-link">
-									<div class="row custom-icon">
+									<div class="row custom-icon e-new-entry">
 										<i class="glyphicon glyphicon-plus" title="new"></i>
 									</div> 
 									<div class="row custom-icon-text">
@@ -149,6 +169,20 @@
 										Search
 									</div>
 								</a>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-left">
+								<form class="new-exercise-entry" style="display:none">
+										Date of Exercise:   <input type="date" name="exercise-date"> <br>
+									  Type of Exercise: <select>
+  											<option value="endurance">Endurance/Cardio</option>
+  											<option value="strength">Strength</option>
+  											<option value="balance">Balance</option>
+  											<option value="flexibility">Flexibility</option>
+									</select> <br>
+									Time Exercised <input type="number" name="exercise-time"><br>
+								<textarea> Log anything else about your exercise here</textarea> <br>
+								  <input type="submit" value="Submit">
+								</form>
 							</div>
 						  </div>
 						</div>
@@ -225,7 +259,27 @@
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
     
     <script>
-           // jQuery goes here
+        $(document).ready(function(){
+        	
+        	function showExerciseForm() {
+				 $( ".new-exercise.entry" ).show("slow");
+			}
+        	
+        	$(".e-new-entry").click(showExerciseForm);	
+        	
+        	$( "form" ).submit(function( event ) {
+  				if ( $( "input" ).val() === "yes" ) {
+					 $( "p" ).show( 4000, function() {
+      					$( this ).text( "Ok, DONE! (now showing)" );
+					 });
+  				}
+  			$( ".new-exercise.entry" ).hide( "fast" );
+ 
+  // Prevent form submission
+  event.preventDefault();
+});
+        }); 
+    
     </script>
   </body>
 </html>
