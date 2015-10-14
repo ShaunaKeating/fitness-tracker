@@ -104,6 +104,7 @@
 					</div>
 					<!-- End: Panel Filter -->
 					
+<<<<<<< HEAD
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			<div class="panel panel-success">
                 <div class="panel-heading">Your Data</div>
@@ -121,6 +122,8 @@
                 </div>
             </div>
             </div>
+=======
+>>>>>>> 256e7491625450e93d9c9a200de9c7ce3220d8b5
 					
 					
 					<!-- Start:Panel-->

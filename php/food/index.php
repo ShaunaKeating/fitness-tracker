@@ -1,4 +1,5 @@
 <?php 
+<<<<<<< HEAD
 
 session_start();
 	$name = 'Shauna Keating';
@@ -31,6 +32,23 @@ session_start();
     }
     
     
+=======
+	$name = 'Shauna Keating';
+	$person = array('Name' => $name, 'Age' => 21, 'Calorie Goal' => 2000);
+
+	$food = array(
+		array('Name' => 'Breakfast', 'Time' => strtotime("one hour ago"), 'Calories' => 400),
+		array('Name' => 'Lunch', 'Time' => strtotime("now"), 'Calories' => 800),
+		array('Name' => 'Snack', 'Time' => strtotime("now + 1 hour"), 'Calories' => 400),		
+		array('Name' => 'Dinner', 'Time' => strtotime('6pm'), 'Calories' => 400),			
+		);
+		
+	$total = 0;
+	foreach ($food as $meal) {
+		$total += $meal['Calories'];
+	}
+
+>>>>>>> 256e7491625450e93d9c9a200de9c7ce3220d8b5
 ?>
 
 <!DOCTYPE html>
@@ -238,6 +256,7 @@ session_start();
 									</div>
 								</a>
 							</div>
+<<<<<<< HEAD
 							
 							
 		 <form class="form-horizontal" action="./" method="post" >
@@ -323,6 +342,8 @@ session_start();
                 					<?php endforeach; ?>
             					  </tbody>
            						 </table>  
+=======
+>>>>>>> 256e7491625450e93d9c9a200de9c7ce3220d8b5
 						  </div>
 						</div>
 					</div>
@@ -348,6 +369,7 @@ session_start();
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
     
     <script>
+<<<<<<< HEAD
                       
           $("#submit").on('click', function(e){
             var self = this;
@@ -380,6 +402,9 @@ session_start();
                 
               }
             }, 200);
+=======
+            //jquery + javascript go here
+>>>>>>> 256e7491625450e93d9c9a200de9c7ce3220d8b5
     </script>
   </body>
 </html>
