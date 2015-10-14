@@ -1,5 +1,4 @@
 <?php 
-<<<<<<< HEAD
 
 session_start();
 	$name = 'Shauna Keating';
@@ -32,7 +31,6 @@ session_start();
     }
     
     
-=======
 	$name = 'Shauna Keating';
 	$person = array('Name' => $name, 'Age' => 21, 'Calorie Goal' => 2000);
 
@@ -48,7 +46,6 @@ session_start();
 		$total += $meal['Calories'];
 	}
 
->>>>>>> 256e7491625450e93d9c9a200de9c7ce3220d8b5
 ?>
 
 <!DOCTYPE html>
@@ -163,18 +160,8 @@ session_start();
 							<h3 class="panel-title">Exercise Entries</h3>
 						  </div>
 						  <div class="panel-body text-center">
-							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-								<a href="#" class="custom-icon-link">
-									<div class="row custom-icon">
-										<i class="glyphicon glyphicon-plus" title="new"></i>
-									</div> 
-									<div class="row custom-icon-text">
-										New
-									</div>
-								</a>
-							</div>
-							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-								<a href="#">
+							<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+								<a href="edit.php">
 									<div class="row custom-icon">
 										<i class="glyphicon glyphicon-edit" title="edit"></i>
 									</div> 
@@ -196,10 +183,10 @@ session_start();
 							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 								<a href="#">
 									<div class="row custom-icon">
-										<i class="glyphicon glyphicon-search" title="search"></i>
+										<i class="glyphicon glyphicon-trash" title="delete all"></i>
 									</div> 
 									<div class="row custom-icon-text">
-										Search
+										Delete All
 									</div>
 								</a>
 							</div>
@@ -216,18 +203,8 @@ session_start();
 							<h3 class="panel-title">Diet Entries</h3>
 						  </div>
 						  <div class="panel-body text-center">
-							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-								<a href="#">
-									<div class="row custom-icon">
-										<i class="glyphicon glyphicon-plus" title="new"></i>
-									</div> 
-									<div class="row custom-icon-text">
-										New
-									</div>
-								</a>
-							</div>
-							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-								<a href="#">
+							<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+								<a href="edit.php">
 									<div class="row custom-icon">
 										<i class="glyphicon glyphicon-edit" title="edit"></i>
 									</div> 
@@ -249,65 +226,13 @@ session_start();
 							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 								<a href="#">
 									<div class="row custom-icon">
-										<i class="glyphicon glyphicon-search" title="search"></i>
+										<i class="glyphicon glyphicon-trash" title="delete all"></i>
 									</div> 
 									<div class="row custom-icon-text">
-										Search
+										Delete All
 									</div>
 								</a>
 							</div>
-<<<<<<< HEAD
-							
-							
-		 <form class="form-horizontal" action="./" method="post" >
-          <div class='alert' style="display: none" id="myAlert">
-            <button type="button" class="close" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h3></h3>
-          </div> 
-          <div class="form-group">
-            <label for="txtName" class="col-sm-2 control-label">Name</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="txtName" name="Name" placeholder="Meal's Name">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="txtCalories">Calories</label>
-            <div class="col-sm-10">
-                  <input type="number" class="form-control" id="txtCalories" name="Calories" placeholder="Calories in this meal">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label" for="txtDate">When did you eat</label>
-            <div class="col-sm-10">
-                  <input type="date" class="form-control" id="txtDate" name="Time" placeholder="Date">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> Remember me
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-success" id="submit">Record</button>
-            </div>
-          </div>
-        </form>
-							<a href="#" class="btn btn-success">
-               					 <i class="glyphicon glyphicon-plus"></i>
-               						 New Record
-           					</a>
-           					 <a href="#" class="btn btn-danger">
-                				<i class="glyphicon glyphicon-trash"></i>
-               						 Delete All
-            					<span class="badge"><?=count($food);?></span>
-            				</a>
 							
 							<table class="table table-condensed table-striped table-bordered table-hover">
               					<thead>
@@ -323,17 +248,9 @@ session_start();
                						 <?php foreach($food as $i => $meal): ?>
                 						<tr>
                  						 <th scope="row"><?=$i?>
-                 						 	<div class="btn-group" role="group" aria-label="...">
-                 						 		<a href="" title="view" class="btn btn-default" >
-                 						 			<i class="glyphicon glyphicon-eye-open"></i> 
-                 						 		</a>
-                 						 			<a href="" title="edit" class="btn btn-default" >
-                 						 			<i class="glyphicon glyphicon-edit"></i> 
-                 						 		</a>
-                 						 		<a href="" title="delete" class="btn btn-default" >
+                 						 		<a href="delete.php" title="delete" class="btn btn-default" >
                  						 			<i class="glyphicon glyphicon-remove"></i> 
                  						 		</a>
-                 						 	</div>
                  						 	</th>
                  							 <td><?=$meal['Name']?></td>
                  							 <td><?=date("M d Y  h:i:sa", $meal['Time'])?></td>
@@ -342,8 +259,6 @@ session_start();
                 					<?php endforeach; ?>
             					  </tbody>
            						 </table>  
-=======
->>>>>>> 256e7491625450e93d9c9a200de9c7ce3220d8b5
 						  </div>
 						</div>
 					</div>
@@ -369,8 +284,7 @@ session_start();
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
     
     <script>
-<<<<<<< HEAD
-                      
+
           $("#submit").on('click', function(e){
             var self = this;
             //$(self).css({display: "none"});
@@ -402,9 +316,7 @@ session_start();
                 
               }
             }, 200);
-=======
             //jquery + javascript go here
->>>>>>> 256e7491625450e93d9c9a200de9c7ce3220d8b5
     </script>
   </body>
 </html>
