@@ -3,25 +3,26 @@ session_start();
     $name = 'Shauna Keating';
       
     
-  $food = $_SESSION['food'];
+  $exer = $_SESSION['exercise'];
   if($_POST){
-    unset($food[$_POST['id']]);
-    $_SESSION['food'] = $food;
+    unset($exer[$_POST['id']]);
+    $_SESSION['exercise'] = $exer;
     header('Location: ./');
   }
   
-  $meal = $food[$_REQUEST['id']];
-
-
-$exer = $_SESSION['exercise'];
-    if(!$exer){
-      $_SESSION['exercise'] = $exer = array(
-          array( 'Type' => 'Running', 'Date' => strtotime("-1 hour"), 'Time' => 4 ),
-          array( 'Type' => 'Situps', 'Date' => strtotime("now"), 'Time' => 10 ),
+  $run = $exer[$_REQUEST['id']];
+     
+    $food = $_SESSION['food'];
+    if(!$food){
+      $_SESSION['food'] = $food = array(
+          array( 'Name' => 'Breakfast', 'Time' => strtotime("-1 hour"), 'Calories' => 400 ),
+          array( 'Name' => 'Lunch', 'Time' => strtotime("now"), 'Calories' => 800 ),
+          array( 'Name' => 'Snack', 'Time' => strtotime("now + 1 hour"), 'Calories' => 400 ),
+          array( 'Name' => 'Dinner', 'Time' => strtotime("6pm"), 'Calories' => 400 ),
           );
     }
     
-    $total = 0;
+       $total = 0;
     foreach ($food as $meal) {
         $total += $meal['Calories'];
     }
@@ -128,7 +129,7 @@ $exer = $_SESSION['exercise'];
             <button type="button" class="close" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            <h3>You're sure that you'd like to delete <?=$meal['Name']?>?</h3>
+            <h3>You're sure that you'd like to delete <?=$run['Name']?>?</h3>
                     <input type="submit" calue="delete" class="btn btn-danger" />
                     <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
           </div> 

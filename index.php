@@ -1,3 +1,5 @@
+  <?php  header('Location: ./php/'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

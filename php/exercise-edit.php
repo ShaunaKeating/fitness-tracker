@@ -1,35 +1,39 @@
 <?php
     session_start();
     
-  $food = $_SESSION['food'];
+  $exer = $_SESSION['exercise'];
   if($_POST){
     if(isset($_GET['id'])){
-      $food[$_GET['id']] = $_POST;
+      $exer[$_GET['id']] = $_POST;
     }else{
-      $food[] = $_POST;
+      $exer[] = $_POST;
     }
     
-    $_SESSION['food'] = $food;
+    $_SESSION['exercise'] = $exer;
     header('Location: ./');
   }
     
   if(isset($_GET['id'])){
-    $meal = $food[$_GET['id']];
+    $run = $exer[$_GET['id']];
   }else{
-    $meal = array();
+    $run = array();
   }
   
     $name = 'Shauna Keating';
     
-    $exer = $_SESSION['exercise'];
-    if(!$exer){
-      $_SESSION['exercise'] = $exer = array(
-          array( 'Type' => 'Running', 'Date' => strtotime("-1 hour"), 'Time' => 4 ),
-          array( 'Type' => 'Situps', 'Date' => strtotime("now"), 'Time' => 10 ),
+    $total = 0;
+    
+     
+    $food = $_SESSION['food'];
+    if(!$food){
+      $_SESSION['food'] = $food = array(
+          array( 'Name' => 'Breakfast', 'Time' => strtotime("-1 hour"), 'Calories' => 400 ),
+          array( 'Name' => 'Lunch', 'Time' => strtotime("now"), 'Calories' => 800 ),
+          array( 'Name' => 'Snack', 'Time' => strtotime("now + 1 hour"), 'Calories' => 400 ),
+          array( 'Name' => 'Dinner', 'Time' => strtotime("6pm"), 'Calories' => 400 ),
           );
     }
     
-       $total = 0;
     foreach ($food as $meal) {
         $total += $meal['Calories'];
     }
@@ -55,7 +59,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Food Log: Edit</title>
+    <title>Exercise Log: Edit</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -132,7 +136,7 @@
       <div class="col-md-8 col-lg-8">
 
         <div class="page-header">
-          <h1>Add or Edit a Meal<br> <small>Enter a meal here!</small></h1> 
+          <h1>Add or Edit an Exercise Entry<br> <small>Enter your exercise here!</small></h1> 
         <form class="form-horizontal" action="./" method="post" >
           <div class='alert' style="display: none" id="myAlert">
             <button type="button" class="close" aria-label="Close">
@@ -141,21 +145,21 @@
             <h3></h3>
           </div> 
           <div class="form-group">
-            <label for="txtName" class="col-sm-2 control-label">Name</label>
+            <label for="txtName" class="col-sm-2 control-label">Type of Exercise</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="txtName" name="Name" placeholder="Meal's Name" value="<?=$meal['Name']?>">
+              <input type="text" class="form-control" id="txtExercise" name="Type" placeholder="Type of Exercise" value="<?=$run['Type']?>">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="txtCalories">Calories</label>
+            <label class="col-sm-2 control-label" for="txtTime">Time Exercised (Minutes)</label>
             <div class="col-sm-10">
-                  <input type="number" class="form-control" id="txtCalories" name="Calories" placeholder="Calories in this meal" value="<?=$meal['Calories']?>">
+                  <input type="number" class="form-control" id="txtExercise" name="Time Exercised" placeholder="Minutes Exercised" value="<?=$run['Time']?>">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="txtDate">When did you eat</label>
+            <label class="col-sm-2 control-label" for="txtDate">When did you exercise</label>
             <div class="col-sm-10">
-                  <input type="date" class="form-control" id="txtDate" name="Time" placeholder="Date" alue="<?=$meal['Time']?>">
+                  <input type="date" class="form-control" id="txtDate" name="Time" placeholder="Date" value="<?=$run['Date']?>">
             </div>
           </div>
           <div class="form-group">

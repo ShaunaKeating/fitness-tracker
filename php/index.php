@@ -18,9 +18,11 @@ session_start();
     if(!$exer){
       $_SESSION['exercise'] = $exer = array(
           array( 'Type' => 'Running', 'Date' => strtotime("-1 hour"), 'Time' => 4 ),
-          array( 'Name' => 'Situps', 'Date' => strtotime("now"), 'Time' => 10 ),
+          array( 'Type' => 'Situps', 'Date' => strtotime("now"), 'Time' => 10 ),
           );
     }
+    
+    
         
     $total = 0;
     foreach ($food as $meal) {
@@ -194,7 +196,7 @@ session_start();
                						 foreach($exer as $i => $run): ?>
                 						<tr>
                  						 <th scope="row"><?=$i?>
-                 						 		<a href="exer-delete.php?id=<?=$i?>" title="delete" class="btn btn-default" >
+                 						 		<a href="exercise-delete.php?id=<?=$i?>" title="delete" class="btn btn-default" >
                  						 			<i class="glyphicon glyphicon-remove"></i> 
                  						 		</a>
                  						 	</th>
