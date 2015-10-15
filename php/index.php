@@ -62,9 +62,9 @@ session_start();
         <?= $name ?> <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Profile</a></li>
+    <li><a href="../user-profile.php">Profile</a></li>
     <li><a href="#">Settings</a></li>
-    <li><a href="#">Log Out</a></li>
+    <li><a href="../index.php">Log Out</a></li>
  		 </ul>
  		 
 			</div> <!-- close dropdown -->
