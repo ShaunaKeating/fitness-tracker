@@ -1,8 +1,7 @@
 <?php
 session_start();
+
     $name = 'Shauna Keating';
-    $message = "Welcome $name";
-    
     $person = array( 'Name' => $name, 'Age' => 21, CalorieGoal => 2000 );
     
     $food = $_SESSION['food'];
@@ -19,6 +18,8 @@ session_start();
     foreach ($food as $meal) {
         $total += $meal['Calories'];
     }
+    
+    $dietTotal = $total / 2000 * 100;
     
     
 ?>
@@ -76,7 +77,7 @@ session_start();
 			
 			
 			
-			
+		<!-- Sidebar -->	
 		<div class="container">
 			<div class="row">	
 				<!-- Start: Left Only Desktop Panel -->			
@@ -88,10 +89,10 @@ session_start();
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<div class="row">
 							<div class="col-xs-1 col-sm-1 col-md-6 col-lg-6 text-left">Calories</div>
-							<div class="col-xs-1 col-sm-1 col-md-6 col-lg-6 text-right">588/2000</div>
+							<div class="col-xs-1 col-sm-1 col-md-6 col-lg-6 text-right"><?= $total ?>/2000</div>
 						</div>
 						<div class="progress">
-						  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
+						  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?= $dietTotal ?>%"></div>
 						</div>
 					</div>
 					<!-- End: Progress Bar -->
@@ -137,7 +138,7 @@ session_start();
 										<i class="glyphicon glyphicon-edit" title="edit"></i>
 									</div> 
 									<div class="row custom-icon-text">
-										Edit
+										New
 									</div>
 								</a>
 							</div>
@@ -152,7 +153,7 @@ session_start();
 								</a>
 							</div>
 							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-								<a href="#">
+								<a href="">
 									<div class="row custom-icon">
 										<i class="glyphicon glyphicon-trash" title="delete all"></i>
 									</div> 
@@ -175,12 +176,12 @@ session_start();
 						  </div>
 						  <div class="panel-body text-center">
 							<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-								<a href="food-edit.php">
+								<a href="food-edit.php?id=<?=$i?>">
 									<div class="row custom-icon">
 										<i class="glyphicon glyphicon-edit" title="edit"></i>
 									</div> 
 									<div class="row custom-icon-text">
-										Edit
+										New
 									</div>
 								</a>
 							</div>
@@ -195,7 +196,7 @@ session_start();
 								</a>
 							</div>
 							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-								<a href="#">
+								<a href="food-delete-all.php">
 									<div class="row custom-icon">
 										<i class="glyphicon glyphicon-trash" title="delete all"></i>
 									</div> 
@@ -219,7 +220,7 @@ session_start();
                						 <?php foreach($food as $i => $meal): ?>
                 						<tr>
                  						 <th scope="row"><?=$i?>
-                 						 		<a href="food-delete.php" title="delete" class="btn btn-default" >
+                 						 		<a href="food-delete.php?id=<?=$i?>" title="delete" class="btn btn-default" >
                  						 			<i class="glyphicon glyphicon-remove"></i> 
                  						 		</a>
                  						 	</th>

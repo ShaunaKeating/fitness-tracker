@@ -79,9 +79,9 @@ session_start();
 							<div class="col-xs-1 col-sm-1 col-md-6 col-lg-6 text-left">Calories</div>
 							<div class="col-xs-1 col-sm-1 col-md-6 col-lg-6 text-right"><?= $total ?>/2000</div>
 						</div>
-												<div class="progress">
-						  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<?= $dietTotal ?>%"></div>
-						  </div>
+						<div class="progress">
+						  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
+						</div>
 					</div>
 					<!-- End: Progress Bar -->
 					<!-- Start: Progress Bar -->
@@ -110,9 +110,9 @@ session_start();
             <button type="button" class="close" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            <h3>You're sure that you'd like to delete <?=$meal['Name']?>?</h3>
-                    <input type="submit" calue="delete" class="btn btn-danger" />
-                    <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
+            <h3>Are you sure you want to delete all food entries?</h3>
+            <input type="submit" value="Delete" class="btn btn-danger"  redirect="user-dashboard.php" />
+            <input type="hidden" name="id" value="<?=$_REQUEST['id']?>" />
           </div> 
         </form>
     </div>

@@ -25,6 +25,10 @@
     margin-top: -12px;
 }
 
+.table {
+    margin-top: 90px;
+}
+
 .dropdown.pull-right {
     position: absolute;
     right: 7%;
