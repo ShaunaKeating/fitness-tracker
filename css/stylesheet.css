@@ -14,10 +14,21 @@
     text-align: center;
 }
 
-.svg-logo {
+.svg-logo{
     width: 127px;
     height: 56px;
     margin-top: -22px;
+}
+
+.navbar-brand img {
+    width: 164px;
+    margin-top: -12px;
+}
+
+.dropdown.pull-right {
+    position: absolute;
+    right: 7%;
+    top: 8px;
 }
 
 .panel {

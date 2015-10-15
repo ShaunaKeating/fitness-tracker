@@ -31,14 +31,7 @@
     <div class="container">
 
         <div class="page-header">
-          <h1>Food Intake <small>Record your daily meals</small></h1>
-        </div>
-          <div class='alert alert-warning'>
-            <button type="button" class="close" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <b>Special Offer</b> Free ice cream today!
-          </div> 
+          <h1>Add a Meal</h1> <br> <small>Enter a meal here!</small>
         <form class="form-horizontal" action="./" method="post" >
           <div class='alert' style="display: none" id="myAlert">
             <button type="button" class="close" aria-label="Close">
@@ -53,9 +46,9 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-2 control-label" for="txtCallories">Callories</label>
+            <label class="col-sm-2 control-label" for="txtCalories">Calories</label>
             <div class="col-sm-10">
-                  <input type="number" class="form-control" id="txtCallories" name="Callories" placeholder="Callories in this meal">
+                  <input type="number" class="form-control" id="txtCalories" name="Calories" placeholder="Calories in this meal">
             </div>
           </div>
           <div class="form-group">

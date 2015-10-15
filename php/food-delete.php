@@ -35,7 +35,7 @@ session_start();
               <span aria-hidden="true">&times;</span>
             </button>
             <h3>Are you sure you want to delete <?=$meal['Name']?></h3>
-            <input type="submit" value="Delete" class="btn btn-danger" redirect="../../../index.php" />
+            <input type="submit" value="Delete" class="btn btn-danger" />
             <input type="hidden" name="id" value="<?=$_REQUEST['id']?>" />
           </div> 
         </form>
