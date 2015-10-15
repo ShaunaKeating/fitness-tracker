@@ -7,10 +7,18 @@ session_start();
     $food = $_SESSION['food'];
     if(!$food){
       $_SESSION['food'] = $food = array(
-          array( 'Name' => 'Breakfast', 'Time' => strtotime("-1 hour"), Calories => 400 ),
-          array( 'Name' => 'Lunch', 'Time' => strtotime("now"), Calories => 800 ),
-          array( 'Name' => 'Snack', 'Time' => strtotime("now + 1 hour"), Calories => 400 ),
-          array( 'Name' => 'Dinner', 'Time' => strtotime("6pm"), Calories => 400 ),
+          array( 'Name' => 'Breakfast', 'Time' => strtotime("-1 hour"), 'Calories' => 400 ),
+          array( 'Name' => 'Lunch', 'Time' => strtotime("now"), 'Calories' => 800 ),
+          array( 'Name' => 'Snack', 'Time' => strtotime("now + 1 hour"), 'Calories' => 400 ),
+          array( 'Name' => 'Dinner', 'Time' => strtotime("6pm"), 'Calories' => 400 ),
+          );
+    }
+    
+        $exer = $_SESSION['exercise'];
+    if(!$exer){
+      $_SESSION['exercise'] = $exer = array(
+          array( 'Type' => 'Running', 'Date' => strtotime("-1 hour"), 'Time' => 4 ),
+          array( 'Name' => 'Situps', 'Date' => strtotime("now"), 'Time' => 10 ),
           );
     }
         
@@ -19,7 +27,13 @@ session_start();
         $total += $meal['Calories'];
     }
     
+    $totalex = 0;
+    foreach ($exer as $run) {
+        $totalex += $run['Time'];
+    }
+    
     $dietTotal = $total / 2000 * 100;
+    $exTotal = $totalex / 30 * 100;
     
     
 ?>
@@ -100,10 +114,10 @@ session_start();
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<div class="row">
 							<div class="col-xs-1 col-sm-1 col-md-6 col-lg-6 text-left">Minutes Exercised Today</div>
-							<div class="col-xs-1 col-sm-1 col-md-6 col-lg-6 text-right">5/30</div>
+							<div class="col-xs-1 col-sm-1 col-md-6 col-lg-6 text-right"><?= $totalex ?>/30</div>
 						</div>
 						<div class="progress">
-						  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"></div>
+						  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:<?= $exTotal ?>%"></div>
 						</div>
 					</div>
 					<!-- End: Progress Bar -->
@@ -153,7 +167,7 @@ session_start();
 								</a>
 							</div>
 							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-								<a href="">
+								<a href="#">
 									<div class="row custom-icon">
 										<i class="glyphicon glyphicon-trash" title="delete all"></i>
 									</div> 
@@ -162,6 +176,41 @@ session_start();
 									</div>
 								</a>
 							</div>
+							
+								<table class="table table-condensed table-striped table-bordered table-hover">
+              					<thead>
+               					 <tr>
+                 					 <th>#</th>
+                 					 <th>Type</th>
+                 					 <th>Date</th>
+                 					 <th>Time</th>
+               					 </tr>
+             					 </thead>
+             					 <tbody>
+      
+               						 <?php 
+               						 
+               						 if (count ($exer) > 0) {
+               						 foreach($exer as $i => $run): ?>
+                						<tr>
+                 						 <th scope="row"><?=$i?>
+                 						 		<a href="exer-delete.php?id=<?=$i?>" title="delete" class="btn btn-default" >
+                 						 			<i class="glyphicon glyphicon-remove"></i> 
+                 						 		</a>
+                 						 	</th>
+                 							 <td><?=$run['Type']?></td>
+                 							 <td><?=date("M d Y  h:i:sa", $run['Time'])?></td>
+                 							 <td><?=$run['Time']?></td>
+               								 </tr>
+                					<?php endforeach; 
+               						 }
+               						  else { 
+               						  $totalex = 0;
+		               					echo 'you have no entries to display!';
+               						  }
+               						 ?>
+            					  </tbody>
+           						 </table>
 						  </div>
 						</div>
 					</div>
@@ -196,7 +245,7 @@ session_start();
 								</a>
 							</div>
 							<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-								<a href="food-delete-all.php">
+								<a href="#">
 									<div class="row custom-icon">
 										<i class="glyphicon glyphicon-trash" title="delete all"></i>
 									</div> 
@@ -217,7 +266,10 @@ session_start();
              					 </thead>
              					 <tbody>
       
-               						 <?php foreach($food as $i => $meal): ?>
+               						 <?php 
+               						 
+               						 if (count ($food) > 0) {
+               						 foreach($food as $i => $meal): ?>
                 						<tr>
                  						 <th scope="row"><?=$i?>
                  						 		<a href="food-delete.php?id=<?=$i?>" title="delete" class="btn btn-default" >
@@ -228,7 +280,13 @@ session_start();
                  							 <td><?=date("M d Y  h:i:sa", $meal['Time'])?></td>
                  							 <td><?=$meal['Calories']?></td>
                								 </tr>
-                					<?php endforeach; ?>
+                					<?php endforeach; 
+               						 }
+               						  else { 
+               						  $total = 0;
+		               					echo 'you have no entries to display!';
+               						  }
+               						 ?>
             					  </tbody>
            						 </table>  
 						  </div>

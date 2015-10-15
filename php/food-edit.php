@@ -1,9 +1,6 @@
 <?php
     session_start();
     
-        $name = 'Shauna Keating';
-    
-session_start();
   $food = $_SESSION['food'];
   if($_POST){
     if(isset($_GET['id'])){
@@ -13,7 +10,7 @@ session_start();
     }
     
     $_SESSION['food'] = $food;
-    header('Location: ./user-dashboard');
+    header('Location: ./');
   }
     
   if(isset($_GET['id'])){
@@ -21,14 +18,16 @@ session_start();
   }else{
     $meal = array();
   }
-    
-    
-        $total = 0;
+  
+    $name = 'Shauna Keating';
+     $total = 0;
     foreach ($food as $meal) {
         $total += $meal['Calories'];
     }
     
     $dietTotal = $total / 2000 * 100;
+    
+
 
     //var_dump( $_GET );
    // var_dump( $_POST );

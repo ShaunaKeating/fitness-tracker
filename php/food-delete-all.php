@@ -1,22 +1,14 @@
 <?php
 session_start();
     $name = 'Shauna Keating';
-
-  $food = $_SESSION['food'];
-  if($_POST){
-    unset($food[$_POST['id']]);
-    $_SESSION['food'] = $food;
-    header('Location: ./user-dashboard.php');
-  }
-  
-  $meal = $food[$_REQUEST['id']];
-  
+      
       $total = 0;
     foreach ($food as $meal) {
         $total += $meal['Calories'];
     }
     
     $dietTotal = $total / 2000 * 100;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

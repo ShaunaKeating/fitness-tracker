@@ -1,22 +1,25 @@
 <?php
 session_start();
     $name = 'Shauna Keating';
-
+      
+    
   $food = $_SESSION['food'];
   if($_POST){
     unset($food[$_POST['id']]);
     $_SESSION['food'] = $food;
-    header('Location: ./user-dashboard.php');
+    header('Location: ./');
   }
   
   $meal = $food[$_REQUEST['id']];
-  
-      $total = 0;
+
+ $total = 0;
     foreach ($food as $meal) {
         $total += $meal['Calories'];
     }
     
     $dietTotal = $total / 2000 * 100;
+    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,7 +113,7 @@ session_start();
             <button type="button" class="close" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            <h3>You're sure that you'd like to delete <?=$meal['Name']?>?</h3>
+            <h3>You're sure that you'd like to delete <?=$meal[$i['Name']]?>?</h3>
                     <input type="submit" calue="delete" class="btn btn-danger" />
                     <input type="hidden" name="id" value="<?=$_REQUEST['id']?>">
           </div> 
